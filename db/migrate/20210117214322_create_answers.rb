@@ -4,6 +4,7 @@ class CreateAnswers < ActiveRecord::Migration[6.1]
       t.string :body
       t.boolean :correct
       t.integer :question_id
+      t.references :question, foreign_key: true
 
       t.timestamps
     end
