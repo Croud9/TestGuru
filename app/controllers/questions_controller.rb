@@ -14,8 +14,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @test.questions.create(question_params)
-    render inline: '<h1>Created</h1>'
+    question = @test.questions.new(question_params)
+
+    if question.save
+      redirect_to question
+    else
+      render plain: 'Error'
+    end
   end
 
   def destroy

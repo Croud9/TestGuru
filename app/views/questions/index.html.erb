@@ -1,8 +1,7 @@
 <h1>Questions:</h1>
-<p type="secret"> <% number = 0 %> </p>
-<% @test.questions.each do |question| %>
+<% @test.questions.each.with_index do |question, index| %>
 <p>
-  №<%= number +=1 %>
+  №<%= index %>
   <%= question.body %>
 </p>
 <% end %>
