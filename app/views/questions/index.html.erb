@@ -1,0 +1,7 @@
+<h1>Questions:</h1>
+<% @test.questions.each.with_index do |question, index| %>
+<p>
+  №<%= index %>
+  <%= question.body %>
+</p>
+<% end %>
