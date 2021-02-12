@@ -2,7 +2,12 @@
   Question id
   <%= @question.id %> :
 </h1>
+
 <p>
   Body:
   <%= @question.body %>
+</p>
+
+<p>
+  <%= link_to 'Back', test_path(@question.test.id) %>
 </p>

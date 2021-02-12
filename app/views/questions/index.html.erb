@@ -1,7 +1,7 @@
 <h1>Questions:</h1>
-<% @test.questions.each.with_index do |question, index| %>
+
+<%= render 'question', questions: @questions%>
+
 <p>
-  №<%= index %>
-  <%= question.body %>
+  <%= link_to 'Back', test_path(@test.id) %>
 </p>
-<% end %>
