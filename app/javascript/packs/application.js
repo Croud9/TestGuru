@@ -9,6 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "utilities/sorting"
 import "utilities/sign_up_password_confirmation"
+import "utilities/form_inline"
+import "utilities/progress_bar"
 
 Rails.start()
 Turbolinks.start()

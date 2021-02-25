@@ -50,6 +50,8 @@ ru:
         show: 'Показать'
         edit: 'Изменить'
         delete: 'Удалить'
+      update_inline:
+        success: ''
 
     questions:
       show:
@@ -98,7 +100,7 @@ ru:
         gist_url: 'Ссылка на Gist'
         email: 'Email пользователя'
         back: 'Назад к списку тестов'
-        
+
   helpers:
     select:
       prompt: 'Пожалуйста выберете'
