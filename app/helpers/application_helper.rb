@@ -3,7 +3,7 @@ module ApplicationHelper
     Time.current.year
   end
 
-  def github_url(author, repo)
+  def github_url(author_name, repo_name)
     link_to "Author: #{author_name}", "https://github.com/#{author_name}/#{repo_name}", target: :blank
   end
 
