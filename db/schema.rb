@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_223615) do
+ActiveRecord::Schema.define(version: 2021_02_28_211712) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -24,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_223615) do
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_categories_on_title"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -49,7 +53,9 @@ ActiveRecord::Schema.define(version: 2021_02_22_223615) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id"
+    t.integer "category_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
+    t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["level", "title"], name: "index_tests_on_level_and_title", unique: true
   end
 
@@ -93,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_223615) do
 
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
+  add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
   add_foreign_key "user_tests", "questions", column: "current_question_id"
   add_foreign_key "user_tests", "tests"
