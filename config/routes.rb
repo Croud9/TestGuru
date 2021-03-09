@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedbacks, only: %i[new create]
+
   resources :user_tests, on: %i[show update] do
     member do
       get :result
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :tests, except: :index do
       patch :update_inline, on: :member
-      
+
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
