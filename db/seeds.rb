@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([
-  { first_name: :Luvest, last_name: :Admin, email: 'adminLuvest@gmail.com', password: :lvstadmn, type: 'Admin' },
+  { first_name: :Luvest, last_name: :Admin, email: 'adminLuvest@gmail.com', password: :lvstadmn },
   { first_name: :Jay, last_name: :Hardway, email: 'JayHardway@gmail.com', password: :hardway }
 ])
 
