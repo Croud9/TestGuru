@@ -1,15 +1,10 @@
 class FeedbacksMailer < ApplicationMailer
-  before_action :find_admin
 
   def feedback(feedback)
+    @user = feedback.user
     @feedback = feedback
 
-    mail to: @admin.email, subject: " 'TestGuru App': Feedback from #{@feedback.user.email}"
-  end
-
-  private
-
-  def find_admin
-    @admin = Admin.first
+    mail(to: @user.email, subject: " 'TestGuru App': Feedback from #{@feedback.user.email}", body: 'something')
+    #mail to: @admin.email, subject: " 'TestGuru App': Feedback from #{@feedback.user.email}"
   end
 end

@@ -77,7 +77,7 @@ en:
         success: 'Answer was successfully updated.'
       show:
         question: 'Question: %{body}'
-        answer: 'Anwer: %{body}'
+        answer: 'Answer: %{body}'
         correct: 'Correct: %{correct}'
         back_to_question: 'Back to question'
       new:

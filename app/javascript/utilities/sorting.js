@@ -1,9 +1,10 @@
 document.addEventListener('turbolinks:load', function () {
     let control = document.querySelector('.sort-by-title')
     if (control) { control.addEventListener('click', sortRowsByTitle )}
+
     if (document.querySelector('nav').classList.contains('bg-secondary')) {
-    document.querySelector('.footer').classList.remove('bg-success')
-    document.querySelector('.footer').classList.add('bg-secondary')
+        document.querySelector('.footer').classList.remove('bg-success')
+        document.querySelector('.footer').classList.add('bg-secondary')
     }
 })
 
