@@ -23,6 +23,5 @@ window.addEventListener('turbolinks:load', () =>{
           else {
             form.querySelector('.passNotMatch').classList.add('hide');
             form.querySelector('.passMatch').classList.remove('hide') }
-        }
     }
 });
