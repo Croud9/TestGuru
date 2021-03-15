@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_194156) do
+ActiveRecord::Schema.define(version: 2021_03_15_141935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 2021_03_07_194156) do
     t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "img_url", null: false
+    t.string "rule_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "badges_user_tests", force: :cascade do |t|
+    t.bigint "badge_id"
+    t.bigint "user_test_id"
+    t.index ["badge_id"], name: "index_badges_user_tests_on_badge_id"
+    t.index ["user_test_id"], name: "index_badges_user_tests_on_user_test_id"
+  end
+
+  create_table "badges_users", force: :cascade do |t|
+    t.bigint "badge_id"
+    t.bigint "user_id"
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -75,6 +97,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_194156) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0
+    t.boolean "completed", default: false
     t.index ["current_question_id"], name: "index_user_tests_on_current_question_id"
     t.index ["test_id"], name: "index_user_tests_on_test_id"
     t.index ["user_id"], name: "index_user_tests_on_user_id"
